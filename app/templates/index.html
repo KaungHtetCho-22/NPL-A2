@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Generator App</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Welcome to the Text Generator App</h1>
+        <form method="POST" action="/">
+            <div class="form-group">
+                <label for="textInput">Enter your text prompt:</label>
+                <!-- The value attribute is now set to handle prefilled input -->
+                <input type="text" class="form-control" id="textInput" name="text_input" placeholder="Type your prompt here" value="{{ query | default('') }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Generate</button>
+        </form>
+        <!-- Check if generated_text is not empty and display it -->
+        {% if generated_text %}
+            <div class="mt-4">
+                <h3>Generated Text:</h3>
+                <!-- Display the generated text -->
+                <p>{{ generated_text }}</p>
+            </div>
+        {% endif %}
+
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

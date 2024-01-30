@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    /* Add the background image below */
+    background-image: url('/static/voldemort.jpg'); /* Update the path if needed */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.5); /* White background with opacity for the overlay */
+    z-index: -1;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+button.btn {
+    width: 100%;
+    background: #007bff;
+    color: white;
+}
+
+button.btn:hover {
+    background: #0056b3;
+}
+
+.generated-text {
+    background-color: #e9ecef;
+    border-left: 4px solid #007bff;
+    padding: 20px;
+    margin-top: 20px;
+}
