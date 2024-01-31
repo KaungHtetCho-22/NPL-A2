@@ -40,8 +40,9 @@ The text is processed using a tokenizer from torchtext, dividing it into batches
 - training perplexity = 35.901
 - validation perplexity = 66.717
 - testing perplexity = 84.753
+- training time = 27m 15s
 
-The training process 
+
 1. During training, a batch of text sequences is put to the model, which first converts the tokens into embeddings. 
 2. Embeddings pass through the LSTM layers (nn.lstm), capturing shared weights between words. 
 3. The model's output is then passed through a linear layer to generate predictions for the next tokens in the sequence. 
